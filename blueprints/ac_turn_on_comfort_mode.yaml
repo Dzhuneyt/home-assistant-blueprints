@@ -1,18 +1,12 @@
+# Author: Dzhuneyt (https://dzhuneyt.com)
+# Originally published at: https://github.com/Dzhuneyt/home-assistant-blueprints
+# License: MIT
+
 blueprint:
   name: AC Turn On Comfort Mode
   description: >
     When any specified AC is switched to a specified mode, switch it to another specified mode and set a preset temperature.
   domain: automation
-  source_url: https://github.com/Dzhuneyt/home-assistant-blueprints
-  author: Dzhuneyt
-  url: https://dzhuneyt.com
-  version: 0.0.1
-  license: MIT
-  tags:
-    - climate
-    - automation
-    - comfort
-    - home assistant
   input:
     climate_entity:
       name: Climate Entity
@@ -53,8 +47,6 @@ trigger:
   - platform: state
     entity_id: !input climate_entity
     to: !input when_hvac_mode_detected
-
-condition: []
 
 action:
   - service: climate.set_temperature
